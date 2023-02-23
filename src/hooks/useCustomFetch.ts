@@ -15,7 +15,8 @@ export function useCustomFetch() {
       wrappedRequest<TData>(async () => {
         const cacheKey = getCacheKey(endpoint, params)
         const cacheResponse = cache?.current.get(cacheKey)
-
+        console.log(cache);
+        
         if (cacheResponse) {
           const data = JSON.parse(cacheResponse)
           return data as Promise<TData>
@@ -49,7 +50,7 @@ export function useCustomFetch() {
   }, [cache])
 
   const clearCacheByEndpoint = useCallback(
-    (endpointsToClear: RegisteredEndpoints[]) => {
+    (endpointsToClear: string[]) => {
       if (cache?.current === undefined) {
         return
       }

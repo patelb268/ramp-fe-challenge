@@ -2,7 +2,8 @@ import { FunctionComponent } from "react"
 import { Transaction } from "../../utils/types"
 
 export type SetTransactionApprovalFunction = (params: {
-  transactionId: string
+  transactionId: string,
+  employeeId: string,
   newValue: boolean
 }) => Promise<void>
 
