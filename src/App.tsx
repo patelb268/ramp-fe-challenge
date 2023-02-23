@@ -29,7 +29,6 @@ export function App() {
     await paginatedTransactionsUtils.fetchAll()
     transactionsByEmployeeUtils.invalidateData() 
   }, [employeeUtils, paginatedTransactionsUtils, transactionsByEmployeeUtils])
-  
 
   const loadTransactionsByEmployee = useCallback(
     async (employeeId: string) => {
@@ -66,7 +65,7 @@ export function App() {
             if (newValue === null) {
               return
             }
-            
+
             await loadTransactionsByEmployee(newValue.id)
           }}
         />
@@ -92,8 +91,4 @@ export function App() {
     </Fragment>
   )
 }
-
-
-
-
 
